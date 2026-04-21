@@ -152,17 +152,36 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ---- MAINTENANCE FILTERS ----
-const filterBtns      = document.querySelectorAll('.filter-btn');
-const maintCards      = document.querySelectorAll('.maint-card');
-filterBtns.forEach(btn => {
+const filterCatBtns = document.querySelectorAll('.filter-btn:not(.filter-pri)');
+const filterPriBtns = document.querySelectorAll('.filter-pri');
+const maintCards    = document.querySelectorAll('.maint-card');
+
+let currentCat = 'all';
+let currentPri = 'all';
+
+function applyFilters() {
+  maintCards.forEach(card => {
+    const matchCat = currentCat === 'all' || card.dataset.category === currentCat;
+    const matchPri = currentPri === 'all' || card.dataset.severity === currentPri;
+    card.classList.toggle('hidden', !(matchCat && matchPri));
+  });
+}
+
+filterCatBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
+    filterCatBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    maintCards.forEach(card => {
-      const match = filter === 'all' || card.dataset.category === filter;
-      card.classList.toggle('hidden', !match);
-    });
+    currentCat = btn.dataset.filter || 'all';
+    applyFilters();
+  });
+});
+
+filterPriBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterPriBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentPri = btn.dataset.priority || 'all';
+    applyFilters();
   });
 });
 

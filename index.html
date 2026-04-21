@@ -534,11 +534,19 @@
       </div>
 
       <!-- Filter tabs -->
-      <div class="maintenance-filters">
-        <button class="filter-btn active" data-filter="all" id="filter-all">Tutti (30)</button>
-        <button class="filter-btn" data-filter="motore" id="filter-motore">🔧 Motore (15)</button>
-        <button class="filter-btn" data-filter="elettronica" id="filter-elettronica">⚡ Elettronica (7)</button>
-        <button class="filter-btn" data-filter="telaio" id="filter-telaio">🔩 Telaio & Interni (8)</button>
+      <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; margin-bottom: 2.5rem;">
+        <div class="maintenance-filters" style="margin-bottom: 0;">
+          <button class="filter-btn active" data-filter="all">Tutti (30)</button>
+          <button class="filter-btn" data-filter="motore">🔧 Motore (15)</button>
+          <button class="filter-btn" data-filter="elettronica">⚡ Elettronica (7)</button>
+          <button class="filter-btn" data-filter="telaio">🔩 Telaio & Interni (8)</button>
+        </div>
+        <div class="maintenance-filters" style="margin-bottom: 0;">
+          <button class="filter-btn filter-pri active" data-priority="all">Priorità: Tutte</button>
+          <button class="filter-btn filter-pri" data-priority="high">🔴 Alta</button>
+          <button class="filter-btn filter-pri" data-priority="medium">🟡 Media</button>
+          <button class="filter-btn filter-pri" data-priority="low">🟢 Bassa</button>
+        </div>
       </div>
 
       <div class="maintenance-grid" id="maintenanceGrid">
