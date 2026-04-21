@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alfa Romeo Giulia Business 2020 — La mia Giulia</title>
+  <meta name="description" content="Scheda tecnica completa, storia, upgrade elettronici, gallery e guida alla manutenzione della Alfa Romeo Giulia 2.2 Turbodiesel 160cv Business 2020." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="logo-symbol">α</span>
+        <span class="logo-text">Giulia <em>2020</em></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#specs" class="nav-link">Tecnica</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#upgrades" class="nav-link">Upgrade</a></li>
+        <li><a href="#reviews" class="nav-link">Recensioni</a></li>
+        <li><a href="#maintenance" class="nav-link">Manutenzione</a></li>
+        <li><a href="#checklist" class="nav-link">Checklist 100k</a></li>
+      </ul>
+      <button class="nav-burger" id="navBurger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" class="hero" id="heroSection">
+    <!-- Carousel slides -->
+    <div class="hero-carousel" id="heroCarousel">
+      <div class="hero-slide active" data-index="0" style="background-image: url('images/hero.png');"></div>
+      <div class="hero-slide" data-index="1" style="background-image: url('images/hero_2.png');"></div>
+      <div class="hero-slide" data-index="2" style="background-image: url('images/giulia (1).png');"></div>
+      <div class="hero-slide" data-index="3" style="background-image: url('images/giulia (7).png');"></div>
+    </div>
+
+    <!-- Overlay gradient -->
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="particles"></div>
+
+    <!-- Carousel arrows -->
+    <button class="hero-arrow hero-arrow-prev" id="heroPrev" aria-label="Slide precedente">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="hero-arrow hero-arrow-next" id="heroNext" aria-label="Slide successiva">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+    <!-- Hero content -->
+    <div class="hero-content">
+      <p class="hero-eyebrow">Piattaforma Giorgio · 2.2 Turbodiesel · RWD</p>
+      <h1 class="hero-title">
+        Alfa Romeo<br/>
+        <span class="hero-title-accent">Giulia</span>
+      </h1>
+      <p class="hero-subtitle">Business Edition · AT8 ZF · 160 CV · 2020</p>
+      <div class="hero-badges">
+        <span class="badge">Euro 6</span>
+        <span class="badge">5.8 l/100km</span>
+        <span class="badge">160 CV</span>
+        <span class="badge">RWD</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#specs" class="btn btn-primary">Scopri la scheda</a>
+        <a href="manuale/giulia-2020-manuale-del-proprietario.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Consulta Manuale 📖</a>
+        <a href="#gallery" class="btn btn-ghost">Gallery →</a>
+      </div>
+    </div>
+
+    <!-- Carousel footer: dots + counter + progress -->
+    <div class="hero-carousel-ui">
+      <div class="hero-dots" id="heroDots">
+        <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
+        <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
+        <button class="hero-dot" data-slide="2" aria-label="Slide 3"></button>
+        <button class="hero-dot" data-slide="3" aria-label="Slide 4"></button>
+      </div>
+      <div class="hero-counter">
+        <span id="heroCurrentSlide">01</span>
+        <span class="hero-counter-sep">/</span>
+        <span class="hero-counter-total">04</span>
+      </div>
+      <div class="hero-progress-track">
+        <div class="hero-progress-fill" id="heroProgressFill"></div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scorri</span>
+    </div>
+  </section>
+
+  <!-- ========== QUICK STATS RIBBON ========== -->
+  <section class="stats-ribbon" id="stats-ribbon">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-value">160</span>
+        <span class="stat-unit">CV</span>
+        <span class="stat-label">Potenza</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value">118</span>
+        <span class="stat-unit">kW</span>
+        <span class="stat-label">Potenza kW</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value">5.8</span>
+        <span class="stat-unit">l/100</span>
+        <span class="stat-label">Consumo</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value">153</span>
+        <span class="stat-unit">g/km</span>
+        <span class="stat-label">CO₂</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value">2.143</span>
+        <span class="stat-unit">cm³</span>
+        <span class="stat-label">Cilindrata</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value">1.540</span>
+        <span class="stat-unit">kg</span>
+        <span class="stat-label">Tara</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SPECS ========== -->
+  <section id="specs" class="section specs-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Dati Tecnici</span>
+        <h2 class="section-title">Scheda Tecnica Completa</h2>
+        <p class="section-sub">Dati ufficiali del veicolo immatricolato nel 2020. <br>
+          <a href="manuale/giulia-2020-manuale-del-proprietario.pdf" target="_blank" rel="noopener" style="color: var(--blue-light); text-decoration: underline; margin-top: 0.5rem; display: inline-block;">Scarica il Manuale del Proprietario Ufficiale (PDF)</a>
+        </p>
+      </div>
+
+      <div class="specs-layout">
+        <div class="specs-card glass-card" id="spec-motore">
+          <div class="spec-card-icon">🔧</div>
+          <h3 class="spec-card-title">Motore & Trasmissione</h3>
+          <div class="spec-list">
+            <div class="spec-row"><span class="spec-key">Tipo motore</span><span class="spec-val">Diesel 2.2 Turbodiesel</span></div>
+            <div class="spec-row"><span class="spec-key">Cilindrata</span><span class="spec-val">2.143 cm³</span></div>
+            <div class="spec-row"><span class="spec-key">Potenza</span><span class="spec-val">118 kW / 160 CV</span></div>
+            <div class="spec-row"><span class="spec-key">Alimentazione</span><span class="spec-val">Diesel Common Rail</span></div>
+            <div class="spec-row"><span class="spec-key">Cambio</span><span class="spec-val">Automatico ZF 8 marce (AT8)</span></div>
+            <div class="spec-row"><span class="spec-key">Trazione</span><span class="spec-val">Posteriore (RWD)</span></div>
+            <div class="spec-row"><span class="spec-key">Emissioni</span><span class="spec-val">Euro 6</span></div>
+          </div>
+        </div>
+
+        <div class="specs-card glass-card" id="spec-dim">
+          <div class="spec-card-icon">📐</div>
+          <h3 class="spec-card-title">Dimensioni & Peso</h3>
+          <div class="spec-list">
+            <div class="spec-row"><span class="spec-key">Lunghezza</span><span class="spec-val">4.643 mm</span></div>
+            <div class="spec-row"><span class="spec-key">Larghezza</span><span class="spec-val">1.860 mm</span></div>
+            <div class="spec-row"><span class="spec-key">Tara</span><span class="spec-val">1.540 kg</span></div>
+            <div class="spec-row"><span class="spec-key">Carrozzeria</span><span class="spec-val">Berlina 4 porte</span></div>
+            <div class="spec-row"><span class="spec-key">Piattaforma</span><span class="spec-val">Giorgio (carbonio/alluminio)</span></div>
+          </div>
+        </div>
+
+        <div class="specs-card glass-card" id="spec-eco">
+          <div class="spec-card-icon">⛽</div>
+          <h3 class="spec-card-title">Consumi & Emissioni</h3>
+          <div class="spec-list">
+            <div class="spec-row"><span class="spec-key">Ciclo combinato</span><span class="spec-val">5.8 l/100km</span></div>
+            <div class="spec-row"><span class="spec-key">CO₂ combinato</span><span class="spec-val">153 g/km</span></div>
+            <div class="spec-row"><span class="spec-key">Standard emissioni</span><span class="spec-val">Euro 6</span></div>
+            <div class="spec-row"><span class="spec-key">Sistema antiinquinamento</span><span class="spec-val">DPF + AdBlue SCR</span></div>
+            <div class="spec-row"><span class="spec-key">Consumo reale (stima)</span><span class="spec-val">~5.5 l/100km autostrada</span></div>
+          </div>
+        </div>
+
+        <div class="specs-card glass-card" id="spec-storia">
+          <div class="spec-card-icon">📋</div>
+          <h3 class="spec-card-title">Storia del Veicolo</h3>
+          <div class="spec-list">
+            <div class="spec-row"><span class="spec-key">Anno immatricolazione</span><span class="spec-val">2020</span></div>
+            <div class="spec-row"><span class="spec-key">Allestimento</span><span class="spec-val">Business</span></div>
+            <div class="spec-row"><span class="spec-key">Primo utilizzo</span><span class="spec-val">Aziendale (flotta)</span></div>
+            <div class="spec-row"><span class="spec-key">Passaggio proprietà</span><span class="spec-val">2025 → Persona fisica</span></div>
+            <div class="spec-row"><span class="spec-key">Danni in cronologia</span><span class="spec-val badge-green">Nessuno ✓</span></div>
+            <div class="spec-row"><span class="spec-key">Proprietari totali</span><span class="spec-val">2</span></div>
+          </div>
+        </div>
+
+        <div class="specs-card glass-card" id="spec-info">
+          <div class="spec-card-icon">📡</div>
+          <h3 class="spec-card-title">Infotelematica</h3>
+          <div class="spec-list">
+            <div class="spec-row"><span class="spec-key">Generazione hardware</span><span class="spec-val">Gen 2</span></div>
+            <div class="spec-row"><span class="spec-key">SW MV</span><span class="spec-val">090.000.061</span></div>
+            <div class="spec-row"><span class="spec-key">SW TV</span><span class="spec-val">090.000.061</span></div>
+            <div class="spec-row"><span class="spec-key">Android Auto</span><span class="spec-val badge-yellow">Sbloccabile SW ✦</span></div>
+            <div class="spec-row"><span class="spec-key">Retrocamera</span><span class="spec-val badge-yellow">Upgrade disponibile ✦</span></div>
+            <div class="spec-row"><span class="spec-key">Sensori parcheggio</span><span class="spec-val">Standard (posteriori)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY ========== -->
+  <section id="gallery" class="section gallery-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Gallery</span>
+        <h2 class="section-title">La mia Giulia in dettaglio</h2>
+        <p class="section-sub">Clicca su un'immagine per vederla a tutto schermo</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item gallery-featured" data-index="0">
+          <img src="images/giulia (1).png" alt="Alfa Romeo Giulia – Frontale Dinamico" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="1">
+          <img src="images/giulia (7).png" alt="Alfa Romeo Giulia – Vista Laterale" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="2">
+          <img src="images/giulia (8).png" alt="Alfa Romeo Giulia – Dettaglio Cerchi" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="3">
+          <img src="images/giulia (9).png" alt="Alfa Romeo Giulia – Tre Quarti Posteriore" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="4">
+          <img src="images/giulia (10).png" alt="Alfa Romeo Giulia – Interni Premium" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="5">
+          <img src="images/giulia (11).png" alt="Alfa Romeo Giulia – Posteriore Notturno" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="6">
+          <img src="images/giulia (12).png" alt="Alfa Romeo Giulia – Dettaglio Fari" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="7">
+          <img src="images/giulia (13).png" alt="Alfa Romeo Giulia – Vano Motore 2.2 Turbo" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="8">
+          <img src="images/giulia (14).png" alt="Alfa Romeo Giulia – Profilo Aerodinamico" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="9">
+          <img src="images/giulia (15).png" alt="Alfa Romeo Giulia – Dettaglio Volante" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="10">
+          <img src="images/giulia (16).png" alt="Alfa Romeo Giulia – Vista Stradale" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="11">
+          <img src="images/giulia___ (1).png" alt="Abitacolo e Sedili in Pelle Nera" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="12">
+          <img src="images/giulia___ (2).png" alt="Comfort Posteriori e Illuminazione Soft" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="13">
+          <img src="images/giulia___ (3).png" alt="Console Centrale, Cambio ZF e Selettore DNA" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="14">
+          <img src="images/giulia___ (4).png" alt="Desktop Panoramico e Plancia di Comando" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="15">
+          <img src="images/hero_2.png" alt="Scudetto Alfa Romeo e Griglia a Nido d'Ape" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="16">
+          <img src="images/volante.png" alt="POV Guida – Panorama sulla Costiera Amalfitana" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="17">
+          <img src="images/volante2.png" alt="Volante Sportivo Alfa Romeo – Studio Detail" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="18">
+          <img src="images/volante3.png" alt="Dettaglio Logo e Pulsante Accensione" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+        <div class="gallery-item" data-index="19">
+          <img src="images/volante4.png" alt="Finiture Interne e Comandi al Volante" loading="lazy" />
+          <div class="gallery-hover-overlay"><span>↗ Espandi</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose">✕</button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
+      <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+      <div class="lightbox-img-wrap">
+        <img id="lightboxImg" src="" alt="Gallery" />
+      </div>
+      <div class="lightbox-counter" id="lightboxCounter">1 / 20</div>
+    </div>
+  </section>
+
+  <!-- ========== UPGRADES ========== -->
+  <section id="upgrades" class="section upgrades-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Migliorie</span>
+        <h2 class="section-title">Upgrade Disponibili</h2>
+        <p class="section-sub">Potenziamenti software e hardware compatibili con il tuo allestimento Business Gen 2</p>
+      </div>
+
+      <div class="upgrades-grid">
+        <div class="upgrade-card glass-card">
+          <div class="upgrade-icon">📱</div>
+          <div class="upgrade-tag upgrade-tag-sw">Software</div>
+          <h3>Android Auto & Apple CarPlay</h3>
+          <p>Il modulo è già presente fisicamente nell'unità Gen 2. Serve solo un <strong>allineamento proxy</strong> via computer: nessuno smontaggio, nessun cambio schermo.</p>
+          <div class="upgrade-steps">
+            <div class="upgrade-step"><span>1</span> Diagnosi con tool ufficiale/aftermarket</div>
+            <div class="upgrade-step"><span>2</span> Abilitazione modulo AA/CP via proxy</div>
+            <div class="upgrade-step"><span>3</span> Verifica funzionamento live</div>
+          </div>
+          <div class="upgrade-meta">
+            <span class="upgrade-difficulty easy">✓ Difficoltà Bassa</span>
+            <span class="upgrade-cost">~100–250 €</span>
+          </div>
+        </div>
+
+        <div class="upgrade-card glass-card">
+          <div class="upgrade-icon">📷</div>
+          <div class="upgrade-tag upgrade-tag-hw">Hardware OEM</div>
+          <h3>Retrocamera Originale (OEM)</h3>
+          <p>Maniglia portellone originale Alfa Romeo con telecamera integrata. Cablaggio originale fino all'infotainment e abilitazione via software delle traiettorie dinamiche.</p>
+          <div class="upgrade-steps">
+            <div class="upgrade-step"><span>1</span> Acquisto maniglia OEM con camera</div>
+            <div class="upgrade-step"><span>2</span> Stesura cablaggio originale</div>
+            <div class="upgrade-step"><span>3</span> Attivazione via coding (griglie dinamiche)</div>
+          </div>
+          <div class="upgrade-meta">
+            <span class="upgrade-difficulty medium">◈ Difficoltà Media</span>
+            <span class="upgrade-cost">~400–700 €</span>
+          </div>
+        </div>
+
+        <div class="upgrade-card glass-card">
+          <div class="upgrade-icon">🎥</div>
+          <div class="upgrade-tag upgrade-tag-am">Aftermarket</div>
+          <h3>Retrocamera Aftermarket</h3>
+          <p>Modulo video aggiuntivo che intercetta il segnale LVDS e si interfaccia col monitor originale. Più economico, altrettanto funzionale, senza toccare il codice fabbrica.</p>
+          <div class="upgrade-steps">
+            <div class="upgrade-step"><span>1</span> Selezione modulo compatibile</div>
+            <div class="upgrade-step"><span>2</span> Connessione al bus LVDS dello schermo</div>
+            <div class="upgrade-step"><span>3</span> Configurazione trigger retromarcia</div>
+          </div>
+          <div class="upgrade-meta">
+            <span class="upgrade-difficulty easy">✓ Difficoltà Bassa</span>
+            <span class="upgrade-cost">~150–300 €</span>
+          </div>
+        </div>
+
+        <div class="upgrade-card glass-card">
+          <div class="upgrade-icon">⚡</div>
+          <div class="upgrade-tag upgrade-tag-sw">Prestazioni</div>
+          <h3>Rimappatura / Sblocco CV</h3>
+          <p>Il motore 2.2 da 160 CV è meccanicamente identico alle versioni da 190 CV. Uno sblocco via centralina garantisce incrementi notevoli (spesso si raggiungono i 200–210 CV) migliorando i consumi ad andatura costante.</p>
+          <div class="upgrade-steps">
+            <div class="upgrade-step"><span>1</span> Lettura parametri centralina</div>
+            <div class="upgrade-step"><span>2</span> Ottimizzazione curve di coppia / CV</div>
+            <div class="upgrade-step"><span>3</span> Esclusione/Chiusura opzionale valvola EGR</div>
+          </div>
+          <div class="upgrade-meta">
+            <span class="upgrade-difficulty medium">◈ Difficoltà Media</span>
+            <span class="upgrade-cost">~300–500 €</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== REVIEWS ========== -->
+  <section id="reviews" class="section reviews-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Opinioni & Community</span>
+        <h2 class="section-title">Pro & Contro del Modello</h2>
+        <p class="section-sub">Sintesi delle recensioni dai forum italiani e dai club ufficiali</p>
+      </div>
+
+      <div class="reviews-layout">
+        <div class="reviews-col pros-col">
+          <div class="reviews-col-header">
+            <span class="reviews-col-icon">✓</span>
+            <h3>Punti di Forza</h3>
+          </div>
+          <div class="review-item">
+            <div class="review-item-icon">🏎️</div>
+            <div>
+              <h4>Piacere di Guida</h4>
+              <p>Il telaio piattaforma Giorgio e lo sterzo direttissimo sono il <strong>punto di riferimento assoluto</strong> nella categoria delle berline. Nessun concorrente eguaglia la comunicatività.</p>
+            </div>
+          </div>
+          <div class="review-item">
+            <div class="review-item-icon">⚙️</div>
+            <div>
+              <h4>Cambio ZF AT8</h4>
+              <p>La taratura è <strong>eccellente</strong>: fluido e invisibile in città, fulmineo in modalità Dynamic. Il miglior automatico della categoria alla data di uscita.</p>
+            </div>
+          </div>
+          <div class="review-item">
+            <div class="review-item-icon">💨</div>
+            <div>
+              <h4>Motore Elastico 160 CV</h4>
+              <p>La quadratura del cerchio: consumi spesso <strong>oltre i 18 km/l reali</strong> in autostrada, con coppia corposa ai bassi regimi già dal tickover.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews-divider-vert">
+          <div class="vs-badge">VS</div>
+        </div>
+
+        <div class="reviews-col cons-col">
+          <div class="reviews-col-header">
+            <span class="reviews-col-icon cons-icon">✗</span>
+            <h3>Punti Deboli</h3>
+          </div>
+          <div class="review-item">
+            <div class="review-item-icon">📺</div>
+            <div>
+              <h4>Infotainment 2020</h4>
+              <p>Lo schermo da 6.5/8.8" è <strong>meno moderno</strong> rispetto alla concorrenza tedesca dell'epoca, con risoluzione inferiore e interfaccia meno intuitiva.</p>
+            </div>
+          </div>
+          <div class="review-item">
+            <div class="review-item-icon">🪑</div>
+            <div>
+              <h4>Finiture Minori</h4>
+              <p>Plastiche inferiori nella parte bassa dell'abitacolo e assemblaggi meno insonorizzati nel lungo periodo rispetto ai rivali premium tedeschi.</p>
+            </div>
+          </div>
+          <div class="review-item">
+            <div class="review-item-icon">📦</div>
+            <div>
+              <h4>Spazio Posteriore</h4>
+              <p>Il tunnel di trasmissione (necessario per la <strong>trazione posteriore</strong>) limita la seduta centrale del divano posteriore.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MAINTENANCE ========== -->
+  <section id="maintenance" class="section maintenance-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Oltre 100.000 km · Forum ClubAlfa.it</span>
+        <h2 class="section-title">30 Punti di Manutenzione</h2>
+        <p class="section-sub">Interventi straordinari e difetti cronici documentati dalla community italiana per la Giulia 2.2 Turbodiesel</p>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="maintenance-filters">
+        <button class="filter-btn active" data-filter="all" id="filter-all">Tutti (30)</button>
+        <button class="filter-btn" data-filter="motore" id="filter-motore">🔧 Motore (15)</button>
+        <button class="filter-btn" data-filter="elettronica" id="filter-elettronica">⚡ Elettronica (7)</button>
+        <button class="filter-btn" data-filter="telaio" id="filter-telaio">🔩 Telaio & Interni (8)</button>
+      </div>
+
+      <div class="maintenance-grid" id="maintenanceGrid">
+
+        <!-- MOTORE 1-15 -->
+        <div class="maint-card glass-card" data-category="motore" data-severity="high">
+          <div class="maint-number">01</div>
+          <div class="maint-severity high">🔴 Alta Priorità</div>
+          <h4>Cinghia di Distribuzione</h4>
+          <p>Sostituzione obbligatoria a 100.000 km o 5 anni. Costo rete ufficiale: <strong>900–1.000 €</strong>. Non trascurabile: rottura = motore fuso.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="motore" data-severity="high">
+          <div class="maint-number">02</div>
+          <div class="maint-severity high">🔴 Alta Priorità</div>
+          <h4>Pompa dell'Acqua</h4>
+          <p>Da sostituire rigorosamente in concomitanza con la cinghia di distribuzione. Mai rimandare.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="motore" data-severity="medium">
+          <div class="maint-number">03</div>
+          <div class="maint-severity medium">🟡 Media Priorità</div>
+          <h4>Cinghia dei Servizi</h4>
+          <p>Verifica usura e rumorosità dei tendicinghia ai 100k km. Sostituzione preventiva raccomandata.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="motore" data-severity="medium">
+          <div class="maint-number">04</div>
+          <div class="maint-severity medium">🟡 Media Priorità</div>
+          <h4>Olio Cambio AT8 ZF</h4>
+          <p>Nonostante Alfa indichi "for life", ZF raccomanda lavaggio e cambio olio oltre i 100k km. Costo trascurabile vs. rischio.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="motore" data-severity="high">
+          <div class="maint-number">05</div>
+          <div class="maint-severity high">🔴 Difetto Noto</div>
+          <h4>Pressione Olio Insufficiente</h4>
+          <p><strong>Il difetto più noto del 2.2.</strong> Il gommino del pescante della pompa dell'olio si secca, aspira aria e fa scattare l'allarme pressione. Monitorare costantemente.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="motore" data-severity="high">
+          <div class="maint-number">06</div>
+          <div class="maint-severity high">🔴 Alta Priorità</div>
+          <h4>Sostituzione Pompa dell'Olio</h4>
+          <p>Nei casi trascurati legati al guasto della guarnizione del pescante (punto 5), può essere necessario cambiare l'intera pompa.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="motore" data-severity="medium">
+          <div class="maint-number">07</div>
+          <div class="maint-severity medium">🟡 Media Priorità</div>
+          <h4>Elettrovalvola Pompa Olio</h4>
+          <p>Componente soggetto a guasti e blocco della pressione corretta. Diagnosi con scanner OBD avanzato.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="motore" data-severity="medium">
+          <div class="maint-number">08</div>
+          <div class="maint-severity medium">🟡 Media Priorità</div>
+          <h4>Intasamento DPF/FAP</h4>
+          <p>Mancate rigenerazioni, specie se i 100k sono stati percorsi in prevalenza nel traffico urbano. Pulizia professionale o sostituzione.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="motore" data-severity="medium">
+          <div class="maint-number">09</div>
+          <div class="maint-severity medium">🟡 Media Priorità</div>
+          <h4>Valvola EGR con Depositi</h4>
+          <p>Accumulo di morchie e fuliggine nei condotti. Necessità di pulizia o sostituzione per ripristinare le prestazioni.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="motore" data-severity="low">
+          <div class="maint-number">10</div>
+          <div class="maint-severity low">🟢 Bassa Priorità</div>
+          <h4>Collettori di Aspirazione</h4>
+          <p>Forte presenza di incrostazioni carboniose che strozzano l'aspirazione. Pulizia raccomandata oltre i 120k km.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="motore" data-severity="medium">
+          <div class="maint-number">11</div>
+          <div class="maint-severity medium">🟡 Media Priorità</div>
+          <h4>Turbocompressore Rumoroso</h4>
+          <p>Sibili anomali e necessità di revisione della girante della turbina. Diagnosi precoce riduce drasticamente i costi di intervento.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="motore" data-severity="medium">
+          <div class="maint-number">12</div>
+          <div class="maint-severity medium">🟡 Media Priorità</div>
+          <h4>Trafilamenti Olio Turbina</h4>
+          <p>Guarnizioni del tubo di mandata olio del turbo che cedono, causando imbrattamento nel vano motore. Visivamente evidente al controllo visivo.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="motore" data-severity="low">
+          <div class="maint-number">13</div>
+          <div class="maint-severity low">🟢 Bassa Priorità</div>
+          <h4>Cristallizzazione AdBlue</h4>
+          <p>Incrostazioni di urea nell'iniettore del sistema SCR. Più comune in climi freddi o con lunghe soste del veicolo.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="motore" data-severity="low">
+          <div class="maint-number">14</div>
+          <div class="maint-severity low">🟢 Bassa Priorità</div>
+          <h4>Serbatoio/Pompa AdBlue</h4>
+          <p>Malfunzionamento della pompa integrata nel serbatoio dell'AdBlue. Spesso segnalato con warning dedicato sul cruscotto.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="motore" data-severity="medium">
+          <div class="maint-number">15</div>
+          <div class="maint-severity medium">🟡 Media Priorità</div>
+          <h4>Paraolio Albero Motore/Cambio</h4>
+          <p>Trasudamento e perdite d'olio nell'accoppiamento tra monoblocco e cambio automatico. Intervento standard ma da non trascurare.</p>
+        </div>
+
+        <!-- ELETTRONICA 16-22 -->
+        <div class="maint-card glass-card" data-category="elettronica" data-severity="medium">
+          <div class="maint-number">16</div>
+          <div class="maint-severity medium">🟡 Media Priorità</div>
+          <h4>Batteria Principale Esausta</h4>
+          <p>L'elettronica accende spie casuali quando la batteria non regge perfettamente la carica. Testare con tester di capacità, non solo voltmetro.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="elettronica" data-severity="low">
+          <div class="maint-number">17</div>
+          <div class="maint-severity low">🟢 Bassa Priorità</div>
+          <h4>Sensore IBS (Battery)</h4>
+          <p>Falsi allarmi o spegnimento inatteso dello Start&Stop causati dal sensore IBS difettoso o ossidato. Ricambio economico.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="elettronica" data-severity="high">
+          <div class="maint-number">18</div>
+          <div class="maint-severity high">🔴 Difetto Noto</div>
+          <h4>Relè Passaruota Ant. Destro</h4>
+          <p><strong>Il relè di avviamento si ossida per l'umidità</strong> (posizionato dietro il parasassi): l'auto non si accende e mostra "albero di Natale" sul cruscotto.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="elettronica" data-severity="medium">
+          <div class="maint-number">19</div>
+          <div class="maint-severity medium">🟡 Media Priorità</div>
+          <h4>Sensore NOX</h4>
+          <p>Guasti al sensore a valle dello scarico che provocano accensione permanente della spia avaria motore (MIL). Comune oltre i 100k km.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="elettronica" data-severity="low">
+          <div class="maint-number">20</div>
+          <div class="maint-severity low">🟢 Bassa Priorità</div>
+          <h4>Sensore Termostato/Temperatura</h4>
+          <p>Indicazione anomala della temperatura del refrigerante con sbalzi improvvisi. Di solito falso guasto del sensore NTC.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="elettronica" data-severity="low">
+          <div class="maint-number">21</div>
+          <div class="maint-severity low">🟢 Bassa Priorità</div>
+          <h4>Sensore Fermaglio Cinture</h4>
+          <p>Falsi contatti nell'ancoraggio della cintura di sicurezza che fanno suonare l'allarme passeggero. Pulizia o sostituzione dell'ancoraggio.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="elettronica" data-severity="low">
+          <div class="maint-number">22</div>
+          <div class="maint-severity low">🟢 Bassa Priorità</div>
+          <h4>Bug Spegnimento Infotainment</h4>
+          <p>Lo schermo tende a riavviarsi o mostrare schermata nera. Spesso risolvibile aggiornando i moduli BCM via OTA o officina.</p>
+        </div>
+
+        <!-- TELAIO 23-30 -->
+        <div class="maint-card glass-card" data-category="telaio" data-severity="medium">
+          <div class="maint-number">23</div>
+          <div class="maint-severity medium">🟡 Media Priorità</div>
+          <h4>Testine Braccetti Anteriori</h4>
+          <p>Usura e rumori/clonck sui dossi causati dallo snodo superiore del quadrilatero. Controllo al banco ogni 30k km.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="telaio" data-severity="medium">
+          <div class="maint-number">24</div>
+          <div class="maint-severity medium">🟡 Media Priorità</div>
+          <h4>Silent Block Barra Stabilizzatrice</h4>
+          <p>Degradamento delle boccole in gomma che porta a instabilità o rumori all'avantreno. Ricambio in gomma rinforzata disponibile aftermarket.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="telaio" data-severity="low">
+          <div class="maint-number">25</div>
+          <div class="maint-severity low">🟢 Info</div>
+          <h4>Saltellamento Fine Corsa</h4>
+          <p>Non è un difetto vero: le gomme indurite nel tempo causano "saltelli" dell'anteriore a fine sterzata. Normale per la geometria Ackermann.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="telaio" data-severity="low">
+          <div class="maint-number">26</div>
+          <div class="maint-severity low">🟢 Bassa Priorità</div>
+          <h4>Rumori Serrature/Scontrini</h4>
+          <p>"Tic-tic" all'orecchio sinistro del guidatore in marcia, originati dalla serratura della portiera. Lubrificazione o sostituzione meccanismo.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="telaio" data-severity="low">
+          <div class="maint-number">27</div>
+          <div class="maint-severity low">🟢 DIY Facile</div>
+          <h4>Targa Ballerina</h4>
+          <p>Vibrazione sorda e metallica alla chiusura del portellone bagagliaio. Risolvibile con feltrini autoadesivi o spessori in pochi minuti.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="telaio" data-severity="low">
+          <div class="maint-number">28</div>
+          <div class="maint-severity low">🟢 Bassa Priorità</div>
+          <h4>Scricchiolii Plancia/Bocchette</h4>
+          <p>Dilatazione termica delle bocchette d'aerazione in estate con continui rumori plastici. Inserimento guarnizioni smorzanti risolve.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="telaio" data-severity="medium">
+          <div class="maint-number">29</div>
+          <div class="maint-severity medium">🟡 Media Priorità</div>
+          <h4>Usura Fianchetto Sedile</h4>
+          <p>Il cuscino sinistro del lato guida si strappa/cede per via delle manovre di salita/discesa. Comune sul tessuto, meno sulla pelle vera.</p>
+        </div>
+
+        <div class="maint-card glass-card" data-category="telaio" data-severity="low">
+          <div class="maint-number">30</div>
+          <div class="maint-severity low">🟢 Bassa Priorità</div>
+          <h4>Sensori Parcheggio Falsi Positivi</h4>
+          <p>Infiltrazione di umidità nei sensori posteriori o sbalzi termici causano bip da ferma senza ostacoli. Sostituzione sensori singoli.</p>
+        </div>
+
+      </div><!-- /maintenance-grid -->
+    </div>
+  </section>
+
+  <!-- ========== CHECKLIST 100K ========== -->
+  <section id="checklist" class="section checklist-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Consigliato dalla Community · ClubAlfa.it</span>
+        <h2 class="section-title">Checklist 100.000 km</h2>
+        <p class="section-sub">Spunta gli interventi già eseguiti — la tua lista personale viene salvata nel browser</p>
+      </div>
+
+      <div class="checklist-progress-wrap">
+        <div class="checklist-progress-bar">
+          <div class="checklist-progress-fill" id="checklistFill"></div>
+        </div>
+        <span class="checklist-progress-label" id="checklistLabel">0 / 20 completati</span>
+        <button class="checklist-reset-btn" id="checklistReset">↺ Reset</button>
+      </div>
+
+      <div class="checklist-columns">
+
+        <div class="checklist-col">
+          <div class="checklist-group">
+            <div class="checklist-group-title">🔧 Distribuzione &amp; Raffreddamento</div>
+            <label class="checklist-item" id="ci-01">
+              <input type="checkbox" data-id="ci-01" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Cinghia di distribuzione</strong> — sostituire entro 100k km o 5 anni. <em>~900–1.000 €</em></span>
+            </label>
+            <label class="checklist-item" id="ci-02">
+              <input type="checkbox" data-id="ci-02" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Pompa dell'acqua</strong> — sempre con la cinghia, mai separatamente.</span>
+            </label>
+            <label class="checklist-item" id="ci-03">
+              <input type="checkbox" data-id="ci-03" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Cinghia dei servizi + tendicinghia</strong> — verifica usura e rumorosità.</span>
+            </label>
+            <label class="checklist-item" id="ci-04">
+              <input type="checkbox" data-id="ci-04" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Liquido refrigerante</strong> — controlla concentrazione e pH.</span>
+            </label>
+          </div>
+
+          <div class="checklist-group">
+            <div class="checklist-group-title">🛢️ Lubrificazione &amp; Olio</div>
+            <label class="checklist-item" id="ci-05">
+              <input type="checkbox" data-id="ci-05" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Guarnizione pescante pompa olio</strong> — <em>difetto cronico</em>: gommino che secca e aspira aria. Sostituire preventivamente.</span>
+            </label>
+            <label class="checklist-item" id="ci-06">
+              <input type="checkbox" data-id="ci-06" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Elettrovalvola pompa olio</strong> — diagnosi OBD per verificare pressione corretta.</span>
+            </label>
+            <label class="checklist-item" id="ci-07">
+              <input type="checkbox" data-id="ci-07" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Paraolio albero motore/cambio</strong> — verifica trasudamenti visivi.</span>
+            </label>
+            <label class="checklist-item" id="ci-08">
+              <input type="checkbox" data-id="ci-08" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Olio cambio AT8 ZF</strong> — lavaggio e sostituzione olio (ignorare la dicitura "for life").</span>
+            </label>
+          </div>
+
+          <div class="checklist-group">
+            <div class="checklist-group-title">💨 Turbina &amp; Aspirazione</div>
+            <label class="checklist-item" id="ci-09">
+              <input type="checkbox" data-id="ci-09" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Turbocompressore</strong> — ascolta sibili anomali, verifica gioco assiale della girante.</span>
+            </label>
+            <label class="checklist-item" id="ci-10">
+              <input type="checkbox" data-id="ci-10" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Tubo mandata olio turbo</strong> — guarnizioni che cedono, cause imbrattamento vano motore.</span>
+            </label>
+            <label class="checklist-item" id="ci-11">
+              <input type="checkbox" data-id="ci-11" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Pulizia collettori di aspirazione</strong> — walnut blasting o pulizia chimica oltre 120k km.</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="checklist-col">
+          <div class="checklist-group">
+            <div class="checklist-group-title">🌫️ Emissioni &amp; Scarico</div>
+            <label class="checklist-item" id="ci-12">
+              <input type="checkbox" data-id="ci-12" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Pulizia/verifica DPF/FAP</strong> — rigenerazione forzata o pulizia professionale se uso urbano prevalente.</span>
+            </label>
+            <label class="checklist-item" id="ci-13">
+              <input type="checkbox" data-id="ci-13" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Valvola EGR</strong> — pulizia condotti dai depositi di fuliggine.</span>
+            </label>
+            <label class="checklist-item" id="ci-14">
+              <input type="checkbox" data-id="ci-14" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Iniettore AdBlue SCR</strong> — verifica cristallizzazioni di urea. <em>Attento alle soste prolungate.</em></span>
+            </label>
+            <label class="checklist-item" id="ci-15">
+              <input type="checkbox" data-id="ci-15" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Sensore NOX</strong> — guasto frequente, accende la MIL (spia motore). Testare con OBD.</span>
+            </label>
+          </div>
+
+          <div class="checklist-group">
+            <div class="checklist-group-title">⚡ Elettronica &amp; Batteria</div>
+            <label class="checklist-item" id="ci-16">
+              <input type="checkbox" data-id="ci-16" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Test batteria principale</strong> — tester di capacità (non solo voltmetro). Spesso causa spie casuali.</span>
+            </label>
+            <label class="checklist-item" id="ci-17">
+              <input type="checkbox" data-id="ci-17" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Sensore IBS</strong> — falsi allarmi Start&amp;Stop; ricambio economico, prevenire è meglio.</span>
+            </label>
+            <label class="checklist-item" id="ci-18">
+              <input type="checkbox" data-id="ci-18" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Relè passaruota anteriore destro</strong> — <em>difetto noto</em>: si ossida per umidità → auto non parte. Trattare con spray anti-ossidazione o sostituire.</span>
+            </label>
+          </div>
+
+          <div class="checklist-group">
+            <div class="checklist-group-title">🔩 Telaio &amp; Sospensioni</div>
+            <label class="checklist-item" id="ci-19">
+              <input type="checkbox" data-id="ci-19" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Testine braccetti anteriori</strong> — controllo al banco per rumori/clonck sui dossi.</span>
+            </label>
+            <label class="checklist-item" id="ci-20">
+              <input type="checkbox" data-id="ci-20" />
+              <span class="ci-box"></span>
+              <span class="ci-text"><strong>Silent block barra stabilizzatrice</strong> — boccole che si sgretolano, causa instabilità in curva.</span>
+            </label>
+          </div>
+        </div>
+
+      </div><!-- /checklist-columns -->
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <span class="logo-symbol">α</span>
+        <span class="logo-text">Giulia Business <em>2020</em></span>
+      </div>
+      <p class="footer-tagline">La grande berlina italiana. Piattaforma Giorgio · 2.2 Turbodiesel · 160 CV · ZF AT8 · RWD</p>
+      <div class="footer-links">
+        <a href="https://www.clubalfa.it" target="_blank" rel="noopener">ClubAlfa.it</a>
+        <a href="https://www.alfaromeo.com" target="_blank" rel="noopener">Alfa Romeo Official</a>
+      </div>
+      <p class="footer-copy">© 2020–2026 · Sito personale · La tua Alfa Romeo Giulia</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
