@@ -144,5 +144,70 @@
     </div>
   </section>
 
+  <section class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">×</button>
+    <div class="lightbox-content">
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
+      <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+      <div class="lightbox-img-wrap">
+        <img id="lightboxImg" src="" alt="Wallpaper" />
+      </div>
+      <div class="lightbox-counter" id="lightboxCounter">1 / 9</div>
+    </div>
+  </section>
+
+  <script>
+    const wpImages = Array.from(document.querySelectorAll('.wp-card img')).map(img => ({src: img.src, alt: img.alt}));
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbClose = document.getElementById('lightboxClose');
+    const lbPrev = document.getElementById('lightboxPrev');
+    const lbNext = document.getElementById('lightboxNext');
+    const lbCounter = document.getElementById('lightboxCounter');
+    let currentIdx = 0;
+
+    function updateLB() {
+      lbImg.src = wpImages[currentIdx].src;
+      lbImg.alt = wpImages[currentIdx].alt;
+      lbCounter.textContent = `${currentIdx + 1} / ${wpImages.length}`;
+    }
+    
+    document.querySelectorAll('.wp-card').forEach((card, idx) => {
+      card.addEventListener('click', (e) => {
+        // Non aprire se l'utente ha cliccato sul pulsante download
+        if(e.target.tagName.toLowerCase() === 'a' || e.target.closest('a')) return; 
+        currentIdx = idx;
+        updateLB();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    lbClose.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    lbPrev.addEventListener('click', () => {
+      currentIdx = (currentIdx - 1 + wpImages.length) % wpImages.length;
+      updateLB();
+    });
+
+    lbNext.addEventListener('click', () => {
+      currentIdx = (currentIdx + 1) % wpImages.length;
+      updateLB();
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lbClose.click();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') lbClose.click();
+      if (e.key === 'ArrowLeft') lbPrev.click();
+      if (e.key === 'ArrowRight') lbNext.click();
+    });
+  </script>
 </body>
 </html>
