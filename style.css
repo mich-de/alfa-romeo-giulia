@@ -7,28 +7,28 @@
 
 :root {
   /* === BLU MONTECARLO PALETTE === */
-  --blue:        hsl(218, 90%, 46%);
-  --blue-dark:   hsl(218, 90%, 32%);
-  --blue-light:  hsl(210, 95%, 62%);
-  --blue-glow:   hsla(218, 90%, 50%, 0.38);
+  --blue:        hsl(215, 90%, 38%);
+  --blue-dark:   hsl(215, 95%, 22%);
+  --blue-light:  hsl(215, 95%, 62%);
+  --blue-glow:   hsla(215, 90%, 38%, 0.45);
   --silver:      hsl(210, 20%, 78%);
   --silver-light:hsl(210, 30%, 90%);
   --bg:          hsl(218, 22%, 6%);
   --bg2:         hsl(218, 20%, 9%);
   --bg3:         hsl(218, 18%, 12%);
-  --surface:     hsla(218, 25%, 16%, 0.7);
+  --surface:     hsla(218, 25%, 16%, 0.55);
   --border:      hsla(218, 50%, 50%, 0.16);
   --text:        hsl(210, 20%, 93%);
   --text-muted:  hsl(218, 15%, 62%);
   --text-dim:    hsl(218, 12%, 44%);
-  --glass-bg:    hsla(218, 30%, 12%, 0.65);
-  --glass-border:hsla(218, 80%, 70%, 0.09);
+  --glass-bg:    hsla(218, 30%, 14%, 0.55);
+  --glass-border:hsla(255, 100%, 100%, 0.08);
   --radius:      14px;
   --radius-lg:   20px;
   --nav-h:       70px;
   --font-main:   'Outfit', sans-serif;
   --font-body:   'Inter', sans-serif;
-  --transition:  0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition:  0.4s cubic-bezier(0.4, 0, 0.2, 1);
   /* legacy aliases so nothing breaks */
   --red:         var(--blue);
   --red-dark:    var(--blue-dark);
@@ -256,6 +256,7 @@ body {
   font-weight: 900;
   color: #fff;
 }
+
 .hero-counter-sep { opacity: 0.4; }
 .hero-counter-total { opacity: 0.5; }
 .hero-progress-track {
@@ -522,15 +523,18 @@ body {
 .glass-card {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
+  border-top: 1px solid hsla(255, 100%, 100%, 0.15); /* Effetto 3D vetro */
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(28px) saturate(1.2);
+  -webkit-backdrop-filter: blur(28px) saturate(1.2);
+  box-shadow: 0 10px 32px hsla(218, 40%, 6%, 0.4), inset 0 2px 2px hsla(255, 100%, 100%, 0.04);
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 .glass-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 60px hsla(220, 30%, 4%, 0.5);
-  border-color: hsla(255,100%,100%,0.13);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 64px hsla(218, 40%, 4%, 0.6), inset 0 2px 2px hsla(255, 100%, 100%, 0.06);
+  border-color: hsla(215, 90%, 60%, 0.3);
+  border-top-color: hsla(255, 100%, 100%, 0.25);
 }
 
 /* ---- SPECS ---- */
@@ -1168,4 +1172,41 @@ body {
   .specs-layout { grid-template-columns: 1fr; }
   .upgrades-grid { grid-template-columns: 1fr; }
   .maintenance-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- SCROLL TO TOP ---- */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 5000;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  color: #fff;
+  border: 1px solid var(--glass-border);
+  border-top: 1px solid hsla(255, 100%, 100%, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px hsla(0,0%,0%,0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all var(--transition);
+}
+#scrollTopBtn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+#scrollTopBtn:hover {
+  background: var(--blue);
+  border-color: var(--blue-light);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px var(--blue-glow);
 }
