@@ -1,9 +1,16 @@
 import { useState, useCallback, useEffect } from 'react'
 
-const WP_IMAGES = Array.from({ length: 9 }, (_, i) => ({
+const OLD_WP = Array.from({ length: 9 }, (_, i) => ({
   src: `wallpapers/wallapers_giulia_ (${i + 1}).png`,
-  alt: `Wallpaper Giulia ${i + 1}`,
-}))
+  alt: `Wallpaper Giulia Classico ${i + 1}`,
+}));
+
+const NEW_WP = Array.from({ length: 18 }, (_, i) => ({
+  src: `wallpapers/wallpaper___ (${i + 1}).png`,
+  alt: `Wallpaper Giulia Premium ${i + 1}`,
+}));
+
+const WP_IMAGES = [...OLD_WP, ...NEW_WP];
 
 export default function Wallpapers() {
   const [lbOpen, setLbOpen] = useState(false)
