@@ -1,6 +1,22 @@
 /* ================================================
-   ALFA ROMEO GIULIA 2020 — PREMIUM DARK DESIGN
-   ================================================ */
+ALFA ROMEO GIULIA 2020 — PREMIUM DARK DESIGN
+================================================ */
+
+/* ---- FONT FACE FALLBACKS ---- */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: local('Montserrat');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: local('Inter');
+}
 
 /* ---- RESET & BASE ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,7 +42,7 @@
   --radius:      14px;
   --radius-lg:   20px;
   --nav-h:       70px;
-  --font-main: 'Outfit', 'Montserrat', 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-main: 'Montserrat', 'Outfit', 'Poppins', system-ui, -apple-system, sans-serif;
   --font-body: 'Inter', 'Roboto', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
   --transition:  0.4s cubic-bezier(0.4, 0, 0.2, 1);
   /* legacy aliases so nothing breaks */
@@ -1305,32 +1321,57 @@ body {
 .video-card:hover .video-thumb-container video {
   opacity: 1;
 }
-.video-play-hint {
+.video-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  transition: var(--transition);
+}
+.video-card:hover .video-thumb-overlay {
+  background: rgba(0,0,0,0.1);
+}
+.video-play-btn {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.2);
-  transition: var(--transition);
+  z-index: 2;
+  pointer-events: none;
 }
-.video-play-hint span {
-  padding: 0.8rem 1.5rem;
-  background: var(--blue);
+.video-play-btn svg {
   color: #fff;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transform: scale(0.9);
-  opacity: 0;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+  opacity: 0.85;
+  transform: scale(1);
   transition: var(--transition);
 }
-.video-card:hover .video-play-hint span {
-  transform: scale(1);
+.video-card:hover .video-play-btn svg {
   opacity: 1;
+  transform: scale(1.15);
+  color: var(--blue);
 }
-.video-card:hover .video-play-hint {
-  background: transparent;
+.video-thumb-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 1rem 0.8rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  z-index: 2;
+  pointer-events: none;
+}
+.video-thumb-title {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+.video-thumb-sub {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.65);
+  margin-top: 0.15rem;
 }
 .video-info {
   padding: 1.5rem;
@@ -1394,6 +1435,19 @@ body {
 }
 .video-modal-close:hover {
   background: var(--red);
+}
+.video-modal-info {
+  padding: 1.2rem 1.5rem;
+  background: rgba(255,255,255,0.05);
+}
+.video-modal-info h3 {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+.video-modal-info p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
 }
 
 /* ---- SCROLL TO TOP ---- */
