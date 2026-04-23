@@ -26,8 +26,8 @@
   --radius:      14px;
   --radius-lg:   20px;
   --nav-h:       70px;
-  --font-main:   'Outfit', sans-serif;
-  --font-body:   'Inter', sans-serif;
+  --font-main: 'Outfit', 'Montserrat', 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', 'Roboto', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
   --transition:  0.4s cubic-bezier(0.4, 0, 0.2, 1);
   /* legacy aliases so nothing breaks */
   --red:         var(--blue);
