@@ -87,7 +87,7 @@ export default function Hero() {
           <br />
           <span className="hero-title-accent">Giulia</span>
         </h1>
-        <p className="hero-subtitle">Business Edition · AT8 ZF · 160 CV · 2020</p>
+        <p className="hero-subtitle">Business Edition · AT8 ZF · 160 CV · 2019</p>
         <div className="hero-badges">
           <span className="badge">Euro 6</span>
           <span className="badge">5.8 l/100km</span>
