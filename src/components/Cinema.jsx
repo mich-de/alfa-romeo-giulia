@@ -21,8 +21,11 @@ export default function Cinema() {
                    src={vid.src} 
                    muted 
                    loop 
+                   playsInline
+                   preload="metadata"
                    onMouseOver={e => e.target.play()} 
                    onMouseOut={e => { e.target.pause(); e.target.currentTime = 0; }}
+                   onClick={e => e.preventDefault()}
                 />
                 <div className="video-play-hint">
                    <span>▶ Riproduci</span>
