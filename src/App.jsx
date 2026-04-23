@@ -9,6 +9,7 @@ import Reviews from './components/Reviews'
 import Maintenance from './components/Maintenance'
 import Checklist from './components/Checklist'
 import Wallpapers from './components/Wallpapers'
+import Cinema from './components/Cinema'
 import Footer from './components/Footer'
 import ScrollTop from './components/ScrollTop'
 
@@ -93,6 +94,7 @@ export default function App() {
       <Maintenance />
       <Checklist />
       <Wallpapers />
+      <Cinema />
       <Footer />
       <ScrollTop />
     </>
