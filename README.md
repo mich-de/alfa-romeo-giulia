@@ -29,6 +29,7 @@ Sito dedicato alla Alfa Romeo Giulia 2.2 Turbodiesel 160cv Business 2020, con sc
 │   │   ├── Maintenance.jsx
 │   │   ├── Checklist.jsx
 │   │   ├── Footer.jsx
+│   │   ├── Wallpapers.jsx
 │   │   └── ScrollTop.jsx
 │   ├── data/            # Dati separati dalla UI
 │   │   ├── specs.js
@@ -36,6 +37,7 @@ Sito dedicato alla Alfa Romeo Giulia 2.2 Turbodiesel 160cv Business 2020, con sc
 │   │   ├── upgrades.js
 │   │   ├── reviews.js
 │   │   ├── maintenance.js
+│   │   ├── wallpapers.js
 │   │   └── checklist.js
 │   ├── App.jsx          # Layout principale + effetti
 │   ├── main.jsx         # Entry point
@@ -77,12 +79,13 @@ npm run deploy
 ## Funzionalità
 
 - **Carousel Hero** — Slideshow automatico con Ken Burns, dots, frecce, progress bar
+- **Wallpaper Gallery** — 52 sfondi scaricabili con metadati SEO, didascalie e sistema di filtraggio per categorie (Heritage, Scenic, AI Concepts, ecc.)
 - **Gallery + Lightbox** — 20 foto con lightbox navigabile (tastiera + click)
 - **Filtri Manutenzione** — 30 punti filtrabili per categoria e priorità
 - **Checklist 100k** — 20 voci con persistenza in `localStorage`
 - **Scroll Reveal** — Animazioni di entrata su scroll (IntersectionObserver)
 - **Particles** — Effetto particelle nell'hero
-- **Tilt 3D** — Effetto tilt sulle card manutenzione
+- **Tilt 3D** — Effetto tilt sulle card manutenzione/wallpapers
 - **Scroll-to-Top** — Pulsante "torna su"
 - **Navbar** — Scroll-aware con active section tracking e burger menu mobile
 - **Responsive** — Adattivo per desktop, tablet e mobile

@@ -1,20 +1,15 @@
-import { useState, useCallback, useEffect } from 'react'
-
-const OLD_WP = Array.from({ length: 9 }, (_, i) => ({
-  src: `wallpapers/wallapers_giulia_ (${i + 1}).png`,
-  alt: `Wallpaper Giulia Classico ${i + 1}`,
-}));
-
-const NEW_WP = Array.from({ length: 18 }, (_, i) => ({
-  src: `wallpapers/wallpaper___ (${i + 1}).png`,
-  alt: `Wallpaper Giulia Premium ${i + 1}`,
-}));
-
-const WP_IMAGES = [...OLD_WP, ...NEW_WP];
+import { useState, useCallback, useEffect, useMemo } from 'react'
+import { WALLPAPERS as WP_IMAGES, WALLPAPER_CATEGORIES } from '../data/wallpapers.js';
 
 export default function Wallpapers() {
   const [lbOpen, setLbOpen] = useState(false)
   const [lbIndex, setLbIndex] = useState(0)
+  const [activeCategory, setActiveCategory] = useState("Tutti")
+
+  const filteredImages = useMemo(() => {
+    if (activeCategory === "Tutti") return WP_IMAGES
+    return WP_IMAGES.filter(img => img.category === activeCategory)
+  }, [activeCategory])
 
   const openLb = useCallback((i) => {
     setLbIndex(i)
@@ -27,8 +22,8 @@ export default function Wallpapers() {
     document.body.style.overflow = ''
   }, [])
 
-  const prev = useCallback(() => setLbIndex((i) => (i - 1 + WP_IMAGES.length) % WP_IMAGES.length), [])
-  const next = useCallback(() => setLbIndex((i) => (i + 1) % WP_IMAGES.length), [])
+  const prev = useCallback(() => setLbIndex((i) => (i - 1 + filteredImages.length) % filteredImages.length), [filteredImages.length])
+  const next = useCallback(() => setLbIndex((i) => (i + 1) % filteredImages.length), [filteredImages.length])
 
   useEffect(() => {
     if (!lbOpen) return
@@ -48,19 +43,33 @@ export default function Wallpapers() {
           <span className="section-eyebrow">Download Collection</span>
           <h2 className="section-title">Wallpapers Esclusivi</h2>
           <p className="section-sub">
-            Tutti gli sfondi in alta risoluzione della tua Alfa Romeo Giulia (desktop e mobile).
+            Tutti gli sfondi in alta risoluzione della tua Alfa Romeo Giulia. Scegli la tua serie preferita.
           </p>
         </div>
+
+        <div className="maintenance-filters reveal visible" style={{ marginBottom: '3rem' }}>
+          {WALLPAPER_CATEGORIES.map(cat => (
+            <button 
+              key={cat}
+              className={`filter-btn ${activeCategory === cat ? 'active' : ''}`}
+              onClick={() => setActiveCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         <div className="wallpapers-grid">
-          {WP_IMAGES.map((wp, i) => (
-            <div className="wp-card" key={i} onClick={(e) => {
+          {filteredImages.map((wp, i) => (
+            <div className="wp-card reveal visible" key={wp.id} onClick={(e) => {
               if (e.target.tagName === 'A' || e.target.closest('a')) return
               openLb(i)
             }}>
               <img src={wp.src} alt={wp.alt} loading="lazy" />
               <div className="wp-overlay">
-                <a href={wp.src} download className="wp-btn">Scarica Sfondo ⬇</a>
+                <a href={wp.src} download className="wp-btn">Scarica ⬇</a>
               </div>
+              <p className="wp-caption">{wp.caption}</p>
             </div>
           ))}
         </div>
@@ -72,10 +81,10 @@ export default function Wallpapers() {
           <button className="lightbox-nav lightbox-prev" onClick={prev}>‹</button>
           <button className="lightbox-nav lightbox-next" onClick={next}>›</button>
           <div className="lightbox-img-wrap">
-            <img src={WP_IMAGES[lbIndex].src} alt={WP_IMAGES[lbIndex].alt} />
+            <img src={filteredImages[lbIndex].src} alt={filteredImages[lbIndex].alt} />
           </div>
           <div className="lightbox-counter">
-            {lbIndex + 1} / {WP_IMAGES.length}
+            {lbIndex + 1} / {filteredImages.length}
           </div>
         </div>
       )}

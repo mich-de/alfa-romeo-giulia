@@ -1193,6 +1193,11 @@ body {
   border: 1px solid var(--border);
   transition: var(--transition);
   cursor: pointer;
+  animation: wpFadeIn 0.5s ease backwards;
+}
+@keyframes wpFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 .wp-card img {
   width: 100%;
@@ -1200,16 +1205,9 @@ body {
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.wp-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, hsla(220,18%,4%,0.9), hsla(220,18%,4%,0.3) 50%, transparent);
-  opacity: 0;
-  transition: var(--transition);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 1.5rem;
+.wp-btn:hover {
+  background: var(--blue-light);
+  transform: translateY(-2px);
 }
 .wp-card:hover {
   border-color: var(--blue);
@@ -1217,6 +1215,7 @@ body {
 }
 .wp-card:hover img { transform: scale(1.04); }
 .wp-card:hover .wp-overlay { opacity: 1; }
+
 .wp-btn {
   display: inline-block;
   padding: 0.6rem 1.4rem;
@@ -1229,10 +1228,42 @@ body {
   font-family: var(--font-main);
   transition: var(--transition);
   box-shadow: 0 2px 10px hsla(0,0%,0%,0.2);
+  z-index: 20;
 }
-.wp-btn:hover {
-  background: var(--blue-light);
-  transform: translateY(-2px);
+
+.wp-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: hsla(220, 18%, 7%, 0.75);
+  backdrop-filter: blur(12px);
+  padding: 0.7rem 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-family: var(--font-main);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-top: 1px solid hsla(255,100%,100%,0.08);
+  transition: var(--transition);
+  z-index: 10;
+}
+.wp-card:hover .wp-caption {
+  color: #fff;
+  background: hsla(220, 18%, 7%, 0.9);
+}
+.wp-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, hsla(220,18%,4%,0.8), transparent);
+  opacity: 0;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 5;
 }
 
 /* ---- SCROLL TO TOP ---- */
