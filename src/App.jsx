@@ -15,6 +15,17 @@ import ScrollTop from './components/ScrollTop'
 
 export default function App() {
   useEffect(() => {
+    // Mouse glow follower
+    const glow = document.createElement('div')
+    glow.className = 'glow-follower'
+    document.body.appendChild(glow)
+    const onMove = (e) => {
+      glow.style.left = e.clientX + 'px'
+      glow.style.top = e.clientY + 'px'
+    }
+    document.addEventListener('mousemove', onMove)
+
+    // Hero particles — copper
     const particles = document.getElementById('particles')
     if (particles) {
       for (let i = 0; i < 28; i++) {
@@ -24,61 +35,59 @@ export default function App() {
         const y = Math.random() * 100
         const dur = Math.random() * 8 + 6
         const del = Math.random() * 6
-        p.style.cssText = `position:absolute;left:${x}%;top:${y}%;width:${size}px;height:${size}px;border-radius:50%;background:hsla(4,85%,60%,${Math.random() * 0.5 + 0.2});animation:particleDrift ${dur}s ${del}s ease-in-out infinite alternate;pointer-events:none;`
+        p.style.cssText = `position:absolute;left:${x}%;top:${y}%;width:${size}px;height:${size}px;border-radius:50%;background:hsla(38,54%,57%,${Math.random() * 0.4 + 0.15});animation:particleDrift ${dur}s ${del}s ease-in-out infinite alternate;pointer-events:none;`
         particles.appendChild(p)
-      }
-      if (!document.getElementById('particle-keyframe')) {
-        const style = document.createElement('style')
-        style.id = 'particle-keyframe'
-        style.textContent = `@keyframes particleDrift{from{transform:translateY(0) scale(1);opacity:.4}to{transform:translateY(-${20 + Math.random() * 30}px) scale(1.4);opacity:.8}}`
-        document.head.appendChild(style)
       }
     }
 
-    const revealEls = document.querySelectorAll('.glass-card,.review-item,.section-header,.upgrade-card')
-    const revealObs = new IntersectionObserver(
+    // Per-grid staggered reveal
+    const containers = '.specs-layout,.upgrades-grid,.maintenance-grid,.wallpapers-grid,.gallery-grid,.video-grid'
+    const gridObs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible')
-            revealObs.unobserve(e.target)
-          }
+          if (!e.isIntersecting) return
+          Array.from(e.target.children).forEach((child, i) => {
+            child.style.setProperty('--i', i)
+            child.classList.add('reveal-stagger')
+            requestAnimationFrame(() => child.classList.add('visible'))
+          })
+          gridObs.unobserve(e.target)
         })
       },
       { threshold: 0.08 }
     )
-    revealEls.forEach((el) => {
-      el.classList.add('reveal')
-      revealObs.observe(el)
-    })
+    document.querySelectorAll(containers).forEach((el) => gridObs.observe(el))
 
-    const statItems = document.querySelectorAll('.stat-item')
-    const statsObs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add('visible')
-        })
-      },
-      { threshold: 0.4 }
-    )
-    statItems.forEach((el) => statsObs.observe(el))
+    // Stat items — sequential entry
+    const statWrap = document.querySelector('.stats-grid')
+    if (statWrap) {
+      const statObs = new IntersectionObserver(
+        (e) => {
+          if (!e[0].isIntersecting) return
+          const items = statWrap.querySelectorAll('.stat-item')
+          items.forEach((item, i) => setTimeout(() => item.classList.add('visible'), i * 120))
+          statObs.disconnect()
+        },
+        { threshold: 0.4 }
+      )
+      statObs.observe(statWrap)
+    }
 
-    const maintCards = document.querySelectorAll('.maint-card')
-    maintCards.forEach((card) => {
+    // 3D tilt — maintenance cards
+    document.querySelectorAll('.maint-card').forEach((card) => {
       card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect()
-        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8
-        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 8
+        const r = card.getBoundingClientRect()
+        const x = ((e.clientX - r.left) / r.width - 0.5) * 8
+        const y = ((e.clientY - r.top) / r.height - 0.5) * 8
         card.style.transform = `perspective(800px) rotateX(${-y}deg) rotateY(${x}deg) translateY(-4px)`
       })
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = ''
-      })
+      card.addEventListener('mouseleave', () => { card.style.transform = '' })
     })
 
     return () => {
-      revealObs.disconnect()
-      statsObs.disconnect()
+      document.removeEventListener('mousemove', onMove)
+      glow.remove()
+      gridObs.disconnect()
     }
   }, [])
 

@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { href: '#gallery', label: 'Gallery' },
   { href: '#upgrades', label: 'Upgrade' },
   { href: '#reviews', label: 'Recensioni' },
+  { href: '#cinema', label: 'Esperienze Visive' },
   { href: '#maintenance', label: 'Manutenzione' },
   { href: '#checklist', label: 'Checklist 100k' },
   { href: '#wallpapers', label: 'Wallpapers' },
@@ -51,12 +52,12 @@ export default function Navbar() {
   return (
     <nav id="navbar" className={scrolled ? 'scrolled' : ''}>
       <div className="nav-inner">
-        <div className="nav-logo">
-          <span className="logo-symbol">α</span>
-          <span className="logo-text">
-            Giulia <em>2020</em>
-          </span>
-        </div>
+      <div className="nav-logo">
+        <img src="alfa-emblem.svg" alt="Alfa Romeo" className="logo-emblem" />
+        <span className="logo-text">
+          Giulia <em>2020</em>
+        </span>
+      </div>
         <ul className={`nav-links${open ? ' open' : ''}`}>
           {NAV_LINKS.map((l) => (
             <li key={l.href}>

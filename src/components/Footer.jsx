@@ -2,12 +2,12 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer-logo">
-          <span className="logo-symbol">α</span>
-          <span className="logo-text">
-            Giulia Business <em>2020</em>
-          </span>
-        </div>
+      <div className="footer-logo">
+        <img src="alfa-emblem.svg" alt="Alfa Romeo" className="logo-emblem" />
+        <span className="logo-text">
+          Giulia Business <em>2020</em>
+        </span>
+      </div>
         <p className="footer-tagline">
           La grande berlina italiana. Piattaforma Giorgio · 2.2 Turbodiesel · 160 CV · ZF AT8 · RWD
         </p>

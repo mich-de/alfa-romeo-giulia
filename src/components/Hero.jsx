@@ -81,6 +81,7 @@ export default function Hero() {
       </button>
 
       <div className="hero-content">
+        <img src="alfa-emblem.svg" alt="Alfa Romeo" className="hero-emblem" />
         <p className="hero-eyebrow">Piattaforma Giorgio · 2.2 Turbodiesel · RWD</p>
         <h1 className="hero-title">
           Alfa Romeo
@@ -96,7 +97,7 @@ export default function Hero() {
         </div>
         <div className="hero-cta">
           <a href="#specs" className="btn btn-primary">Scopri la scheda</a>
-          <a href="manuale/giulia-2020-manuale-del-proprietario.pdf" target="_blank" rel="noopener" className="btn btn-ghost">Consulta Manuale 📖</a>
+          <a href="manuale/giulia-2020-manuale-del-proprietario.pdf" target="_blank" rel="noopener" className="btn btn-ghost">Manuale</a>
           <a href="#gallery" className="btn btn-ghost">Gallery →</a>
         </div>
       </div>
