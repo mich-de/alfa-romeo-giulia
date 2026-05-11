@@ -36,14 +36,17 @@ ALFA ROMEO GIULIA 2020 — PREMIUM DARK DESIGN
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --copper:      hsl(38, 54%, 57%);
-  --copper-dark: hsl(38, 45%, 32%);
-  --copper-glow: hsla(38, 54%, 57%, 0.35);
-  --red-accent:  hsl(0, 80%, 48%);
-  --blue:        hsl(215, 90%, 40%);
-  --blue-dark:   hsl(215, 95%, 22%);
-  --blue-light:  hsl(215, 85%, 65%);
-  --blue-glow:   hsla(215, 90%, 38%, 0.45);
+  --blu-montecarlo:      hsl(218, 55%, 32%);
+  --blu-montecarlo-dark: hsl(218, 55%, 20%);
+  --blu-montecarlo-light:hsl(218, 55%, 55%);
+  --blu-montecarlo-glow: hsla(218, 55%, 32%, 0.35);
+  --rosso-ferrari:       hsl(0, 85%, 48%);
+  --rosso-ferrari-dark:  hsl(0, 85%, 35%);
+  --rosso-ferrari-glow:  hsla(0, 85%, 48%, 0.35);
+  --blue:        var(--blu-montecarlo);
+  --blue-dark:   var(--blu-montecarlo-dark);
+  --blue-light:  var(--blu-montecarlo-light);
+  --blue-glow:   var(--blu-montecarlo-glow);
   --silver:      hsl(210, 20%, 78%);
   --bg:          hsl(222, 25%, 5%);
   --bg2:         hsl(222, 22%, 8%);
@@ -64,11 +67,11 @@ ALFA ROMEO GIULIA 2020 — PREMIUM DARK DESIGN
   --font-body:   'Sora', 'Inter', system-ui, sans-serif;
   --font-stats:  'Bebas Neue', 'Impact', sans-serif;
   --transition:  0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  --red:         var(--red-accent);
-  --red-dark:    hsl(0, 80%, 32%);
-  --red-glow:    hsla(0, 80%, 48%, 0.3);
-  --gold:        var(--copper);
-  --gold-light:  hsl(38, 54%, 70%);
+  --red:         var(--rosso-ferrari);
+  --red-dark:    var(--rosso-ferrari-dark);
+  --red-glow:    var(--rosso-ferrari-glow);
+  --gold:        var(--blu-montecarlo);
+  --gold-light:  var(--blu-montecarlo-light);
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -161,18 +164,18 @@ body {
   width: 0;
   height: 2px;
   border-radius: 999px;
-  background: var(--copper);
+  background: var(--blu-montecarlo);
   transform: translateX(-50%);
   transition: width var(--transition), box-shadow var(--transition);
 }
 .nav-link:hover { color: var(--text); }
-.nav-link:hover::after { width: 60%; box-shadow: 0 0 8px var(--copper-glow); }
+.nav-link:hover::after { width: 60%; box-shadow: 0 0 8px var(--blu-montecarlo-glow); }
 .nav-link.active {
-  color: var(--copper);
+  color: var(--blu-montecarlo);
 }
 .nav-link.active::after {
   width: 70%;
-  box-shadow: 0 0 10px var(--copper-glow);
+  box-shadow: 0 0 10px var(--blu-montecarlo-glow);
 }
 .nav-burger {
   display: none;
@@ -264,9 +267,9 @@ body {
   pointer-events: auto;
 }
 .hero-arrow:hover {
-  background: var(--copper);
-  border-color: var(--copper);
-  box-shadow: 0 0 24px var(--copper-glow);
+  background: var(--rosso-ferrari);
+  border-color: var(--rosso-ferrari);
+  box-shadow: 0 0 24px var(--rosso-ferrari-glow);
   transform: translateY(-50%) scale(1.08);
 }
 .hero-arrow-prev { left: 2rem; }
@@ -332,7 +335,7 @@ body {
 .hero-progress-fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, var(--copper) 0%, var(--blue-light) 100%);
+  background: linear-gradient(90deg, var(--blu-montecarlo) 0%, var(--blue-light) 100%);
   border-radius: 999px;
   transition: width linear;
 }
@@ -350,7 +353,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 70% 50%, hsla(38, 54%, 57%, 0.1) 0%, transparent 70%);
+  background: radial-gradient(ellipse at 70% 50%, hsla(218, 55%, 32%, 0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 .hero-particles {
@@ -388,7 +391,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--copper);
+  color: var(--rosso-ferrari);
   margin-bottom: 1rem;
 }
 .hero-title {
@@ -401,7 +404,7 @@ body {
   letter-spacing: 0.04em;
 }
 .hero-title-accent {
-  background: linear-gradient(135deg, var(--copper) 0%, var(--blue-light) 45%, var(--blue) 100%);
+  background: linear-gradient(135deg, var(--rosso-ferrari) 0%, var(--blu-montecarlo-light) 50%, var(--blu-montecarlo) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -454,15 +457,15 @@ body {
   border: none;
 }
 .btn-primary {
-  background: linear-gradient(135deg, var(--copper) 0%, var(--copper-dark) 100%);
+  background: linear-gradient(135deg, var(--rosso-ferrari) 0%, var(--rosso-ferrari-dark) 100%);
   color: #fff;
-  box-shadow: 0 4px 24px var(--copper-glow);
-  border: 1px solid hsla(38, 54%, 57%, 0.3);
+  box-shadow: 0 4px 24px var(--rosso-ferrari-glow);
+  border: 1px solid hsla(0, 85%, 48%, 0.3);
 }
 .btn-primary:hover {
-  background: linear-gradient(135deg, hsl(38, 54%, 65%) 0%, var(--copper) 100%);
+  background: linear-gradient(135deg, hsl(0, 85%, 55%) 0%, var(--rosso-ferrari) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 36px var(--copper-glow);
+  box-shadow: 0 8px 36px var(--rosso-ferrari-glow);
 }
 .btn-ghost {
   background: hsla(255,100%,100%,0.07);
@@ -506,9 +509,9 @@ body {
 
 /* ---- STATS RIBBON ---- */
 .stats-ribbon {
-  background: linear-gradient(135deg, hsl(222, 90%, 22%) 0%, hsl(222, 70%, 14%) 50%, hsl(38, 50%, 10%) 100%);
-  border-top: 1px solid hsla(38, 54%, 57%, 0.2);
-  border-bottom: 1px solid hsla(38, 54%, 57%, 0.2);
+  background: linear-gradient(135deg, hsl(222, 90%, 22%) 0%, hsl(222, 70%, 14%) 50%, hsl(218, 55%, 6%) 100%);
+  border-top: 1px solid hsla(218, 55%, 32%, 0.25);
+  border-bottom: 1px solid hsla(218, 55%, 32%, 0.25);
   padding: 0;
   overflow: hidden;
 }
@@ -582,7 +585,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--copper);
+  color: var(--rosso-ferrari);
   margin-bottom: 0.75rem;
 }
 .section-title {
@@ -622,7 +625,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(ellipse at 30% 0%, hsla(38, 54%, 57%, 0.06) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 30% 0%, hsla(218, 55%, 32%, 0.08) 0%, transparent 60%);
   opacity: 0;
   transition: opacity var(--transition);
   pointer-events: none;
@@ -633,15 +636,15 @@ body {
   position: absolute;
   top: -1px; left: 20%; right: 20%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--copper), transparent);
+  background: linear-gradient(90deg, transparent, var(--blu-montecarlo), transparent);
   opacity: 0;
   transition: opacity var(--transition);
   pointer-events: none;
 }
 .glass-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 24px 64px hsla(222, 40%, 4%, 0.6), inset 0 2px 2px hsla(255, 100%, 100%, 0.06), 0 0 48px var(--copper-glow);
-  border-color: var(--copper);
+  box-shadow: 0 24px 64px hsla(222, 40%, 4%, 0.6), inset 0 2px 2px hsla(255, 100%, 100%, 0.06), 0 0 48px var(--blu-montecarlo-glow);
+  border-color: var(--blu-montecarlo);
   border-top-color: transparent;
 }
 .glass-card:hover::before { opacity: 1; }
@@ -660,8 +663,8 @@ body {
 .spec-card-icon {
   font-size: 1.6rem;
   margin-bottom: 0.8rem;
-  color: var(--copper);
-  filter: drop-shadow(0 0 6px var(--copper-glow));
+  color: var(--blu-montecarlo);
+  filter: drop-shadow(0 0 6px var(--blu-montecarlo-glow));
   display: inline-block;
 }
 .spec-card-title {
@@ -688,7 +691,7 @@ body {
   text-align: right;
 }
 .spec-val strong {
-  color: var(--copper);
+  color: var(--rosso-ferrari);
   font-weight: 700;
 }
 .badge-green {
@@ -719,8 +722,8 @@ body {
   transition: border-color var(--transition), box-shadow var(--transition), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .gallery-item:hover {
-  border-color: var(--copper);
-  box-shadow: 0 0 40px var(--copper-glow);
+  border-color: var(--blu-montecarlo);
+  box-shadow: 0 0 40px var(--blu-montecarlo-glow);
   z-index: 2;
 }
 .gallery-item.gallery-featured {
@@ -735,14 +738,14 @@ body {
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .gallery-item:hover {
-  box-shadow: 0 0 32px var(--copper-glow);
+  box-shadow: 0 0 32px var(--blu-montecarlo-glow);
   z-index: 2;
 }
 .gallery-item:hover img { transform: scale(1.07); }
 .gallery-hover-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, hsla(38, 54%, 10%, 0.85) 0%, transparent 60%);
+  background: linear-gradient(to top, hsla(218, 55%, 5%, 0.85) 0%, transparent 60%);
   opacity: 0;
   display: flex;
   align-items: flex-end;
@@ -857,8 +860,8 @@ body {
 .upgrade-tag-hw  { background: hsla(145, 70%, 40%, 0.15); color: hsl(145, 70%, 55%); border: 1px solid hsla(145,70%,40%,0.25); }
 .upgrade-tag-am  { background: hsla(43, 90%, 55%, 0.15);  color: var(--gold);          border: 1px solid hsla(43,90%,55%,0.3); }
 .upgrade-icon {
-  filter: drop-shadow(0 0 8px var(--copper-glow));
-  color: var(--copper);
+  filter: drop-shadow(0 0 8px var(--blu-montecarlo-glow));
+  color: var(--blu-montecarlo);
 }
 .upgrade-card h3 {
   font-family: var(--font-main);
@@ -871,7 +874,7 @@ body {
   display: block;
   width: 2rem;
   height: 2px;
-  background: var(--copper);
+  background: var(--blu-montecarlo);
   border-radius: 999px;
   margin-top: 0.5rem;
   opacity: 0.5;
@@ -880,7 +883,7 @@ body {
 .upgrade-card:hover h3::after {
   width: 3.5rem;
   opacity: 1;
-  box-shadow: 0 0 8px var(--copper-glow);
+  box-shadow: 0 0 8px var(--blu-montecarlo-glow);
 }
 .upgrade-card p {
   font-size: 0.875rem;
@@ -908,7 +911,7 @@ body {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--copper);
+  background: var(--rosso-ferrari);
   color: #fff;
   font-size: 0.7rem;
   font-weight: 700;
@@ -928,7 +931,7 @@ body {
 }
 .upgrade-difficulty { padding: 0.22rem 0.65rem; border-radius: 999px; font-family: var(--font-main); }
 .upgrade-difficulty.easy   { background: hsla(145,70%,40%,0.15); color: hsl(145,70%,55%); }
-.upgrade-difficulty.medium { background: hsla(43,90%,55%,0.15);  color: var(--gold); }
+.upgrade-difficulty.medium { background: hsla(218, 55%, 32%, 0.15); color: var(--blu-montecarlo-light); }
 .upgrade-cost { color: var(--text-muted); }
 
 /* ---- REVIEWS ---- */
@@ -994,7 +997,7 @@ body {
   top: 0;
   bottom: 0;
   width: 3px;
-  background: var(--copper);
+  background: var(--blu-montecarlo);
   opacity: 0;
   transition: opacity var(--transition);
 }
@@ -1037,7 +1040,7 @@ body {
 .vs-badge {
   position: relative;
   z-index: 1;
-  background: linear-gradient(135deg, var(--copper) 0%, var(--copper-dark) 100%);
+  background: linear-gradient(135deg, var(--rosso-ferrari) 0%, var(--rosso-ferrari-dark) 100%);
   color: #fff;
   width: 44px;
   height: 44px;
@@ -1049,7 +1052,7 @@ body {
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 20px var(--copper-glow);
+  box-shadow: 0 4px 20px var(--rosso-ferrari-glow);
   top: 3rem;
 }
 
@@ -1075,10 +1078,10 @@ body {
   transition: var(--transition);
 }
 .filter-btn:hover, .filter-btn.active {
-  background: linear-gradient(135deg, var(--copper) 0%, var(--copper-dark) 100%);
-  border-color: var(--copper);
+  background: linear-gradient(135deg, var(--rosso-ferrari) 0%, var(--rosso-ferrari-dark) 100%);
+  border-color: var(--rosso-ferrari);
   color: #fff;
-  box-shadow: 0 4px 18px var(--copper-glow);
+  box-shadow: 0 4px 18px var(--rosso-ferrari-glow);
 }
 .maintenance-grid {
   display: grid;
@@ -1160,7 +1163,7 @@ body {
 .checklist-progress-fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, var(--copper) 0%, var(--blue-light) 100%);
+  background: linear-gradient(90deg, var(--blu-montecarlo) 0%, var(--blue-light) 100%);
   border-radius: 999px;
   transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1421,8 +1424,8 @@ body::after {
   transform: translateY(-2px);
 }
 .wp-card:hover {
-  border-color: var(--copper);
-  box-shadow: 0 4px 32px var(--copper-glow);
+  border-color: var(--blu-montecarlo);
+  box-shadow: 0 4px 32px var(--blu-montecarlo-glow);
 }
 .wp-card:hover img { transform: scale(1.06); }
 .wp-card:hover .wp-overlay { opacity: 1; }
@@ -1497,8 +1500,8 @@ body::after {
 }
 .video-card:hover {
   transform: translateY(-6px);
-  border-color: var(--copper);
-  box-shadow: 0 10px 40px var(--copper-glow);
+  border-color: var(--blu-montecarlo);
+  box-shadow: 0 10px 40px var(--blu-montecarlo-glow);
 }
 .video-thumb-container {
   position: relative;
@@ -1544,8 +1547,8 @@ body::after {
 .video-card:hover .video-play-btn svg {
   opacity: 1;
   transform: scale(1.15);
-  color: var(--copper);
-  filter: drop-shadow(0 0 12px var(--copper-glow));
+  color: var(--blu-montecarlo);
+  filter: drop-shadow(0 0 12px var(--blu-montecarlo-glow));
 }
 .video-thumb-label {
   position: absolute;

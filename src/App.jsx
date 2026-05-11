@@ -25,7 +25,7 @@ export default function App() {
     }
     document.addEventListener('mousemove', onMove)
 
-    // Hero particles — copper
+    // Hero particles — rosso-ferrari
     const particles = document.getElementById('particles')
     if (particles) {
       for (let i = 0; i < 28; i++) {
@@ -35,7 +35,7 @@ export default function App() {
         const y = Math.random() * 100
         const dur = Math.random() * 8 + 6
         const del = Math.random() * 6
-        p.style.cssText = `position:absolute;left:${x}%;top:${y}%;width:${size}px;height:${size}px;border-radius:50%;background:hsla(38,54%,57%,${Math.random() * 0.4 + 0.15});animation:particleDrift ${dur}s ${del}s ease-in-out infinite alternate;pointer-events:none;`
+        p.style.cssText = `position:absolute;left:${x}%;top:${y}%;width:${size}px;height:${size}px;border-radius:50%;background:hsla(0,85%,48%,${Math.random() * 0.3 + 0.1});animation:particleDrift ${dur}s ${del}s ease-in-out infinite alternate;pointer-events:none;`
         particles.appendChild(p)
       }
     }
