@@ -1,0 +1,83 @@
+export const specsCards = [
+  {
+    id: 'spec-motore',
+    icon: '🔧',
+    title: 'Motore & Trasmissione',
+    rows: [
+      { key: 'Tipo motore', val: 'Diesel 2.2 Turbodiesel' },
+      { key: 'Cilindrata', val: '2.143 cm³' },
+      { key: 'Potenza', val: '118 kW / 160 CV' },
+      { key: 'Alimentazione', val: 'Diesel Common Rail' },
+      { key: 'Cambio', val: 'Automatico ZF 8 marce (AT8)' },
+      { key: 'Trazione', val: 'Posteriore (RWD)' },
+      { key: 'Emissioni', val: 'Euro 6' },
+    ],
+  },
+  {
+    id: 'spec-dim',
+    icon: '📐',
+    title: 'Esterni & Dimensioni',
+    rows: [
+      {
+        key: 'Colore Vernice',
+        val: 'Blu Montecarlo (092/A)',
+        style: { display: 'flex', alignItems: 'center', gap: '0.5rem' },
+        badge: '',
+      },
+      { key: 'Carrozzeria', val: 'Berlina 4 porte' },
+      { key: 'Lunghezza / Larghezza', val: '4.643 mm / 1.860 mm' },
+      { key: 'Tara', val: '1.540 kg' },
+      { key: 'Piattaforma', val: 'Giorgio (carbonio/alluminio)' },
+    ],
+  },
+  {
+    id: 'spec-eco',
+    icon: '⛽',
+    title: 'Consumi & Emissioni',
+    rows: [
+      { key: 'Ciclo combinato', val: '5.8 l/100km' },
+      { key: 'CO₂ combinato', val: '153 g/km' },
+      { key: 'Standard emissioni', val: 'Euro 6' },
+      { key: 'Sistema antiinquinamento', val: 'DPF + AdBlue SCR' },
+      { key: 'Consumo reale (stima)', val: '~5.5 l/100km autostrada' },
+    ],
+  },
+  {
+    id: 'spec-storia',
+    icon: '📋',
+    title: 'Storia del Veicolo',
+    rows: [
+      { key: 'Anno immatricolazione', val: '2019' },
+      { key: 'Chilometraggio (Report)', val: '84.759 Mi (Apr 2026)' },
+      { key: 'Allestimento', val: 'Business' },
+      { key: 'Passaggio proprietà', val: '2025 → Persona fisica' },
+      { key: 'Danni in cronologia', val: 'Nessuno ✓', badge: 'badge-green' },
+      { key: 'Proprietari totali', val: '2' },
+    ],
+  },
+  {
+    id: 'spec-business',
+    icon: '👔',
+    title: 'Allestimento Business (Standard)',
+    rows: [
+      { key: 'Infotainment', val: 'Alfa Connect 8.8" (Gen 2)' },
+      { key: 'Cerchi in lega', val: '16" Design Business' },
+      { key: 'Fari anteriori', val: 'Bi-Xenon 25W + LED DRL' },
+      { key: 'Sensori di Parcheggio', val: 'Standard (posteriori)' },
+      { key: 'Trazione', val: 'Posteriore (RWD)', badge: 'badge-blue' },
+    ],
+  },
+  {
+    id: 'spec-info',
+    icon: '📡',
+    title: 'Infotelematica & Moduli',
+    rows: [
+      { key: 'ETM (Entertainment)', val: '50355176061-02' },
+      { key: 'RFH (Radio Hub)', val: '10161600AB' },
+      { key: 'ACC (Cruise Adattivo)', val: 'MRR1evo14F' },
+      { key: 'HALF (Camera Corsair)', val: 'MPC2plus-02' },
+      { key: 'SW Versione (MV)', val: '090.000.061' },
+      { key: 'Android Auto', val: 'Attivabile via SW ✦', badge: 'badge-yellow' },
+    ],
+  },
+]
